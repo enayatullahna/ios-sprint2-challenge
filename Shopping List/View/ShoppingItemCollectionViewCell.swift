@@ -24,6 +24,7 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addedLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
     
     
     
@@ -37,6 +38,8 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
         
         let text = item.hasBeenAdded ? "Added" : "Not Added"
         addedLabel.text = text
+        let textName = item.name
+        itemNameLabel.text = textName
     }
     
     
