@@ -12,18 +12,21 @@ private let reuseIdentifier = "ShoppingCell"
 
 class ShoppingItemCollectionViewController: UICollectionViewController {
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = UIColor.lightGray
+//    }
+    
     let shoppingItemController = ShoppingItemController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //self.collectionView?.reloadData()
+        
     }
+    
 
     
 
@@ -40,7 +43,7 @@ class ShoppingItemCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShoppingItemCollectionViewCell
     
-        let item = self.shoppingItemController.shoppingItem[indexPath.row]
+        let item = self.shoppingItemController.shoppingItem[indexPath.item]
         cell.shoppingItem = item
         cell.delegate = self
     

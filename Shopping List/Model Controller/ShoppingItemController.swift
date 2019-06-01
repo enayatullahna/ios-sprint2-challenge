@@ -11,6 +11,14 @@ import Foundation
 
 class ShoppingItemController {
     
+    init() {
+        loadFromPersistenceStore()
+        doubleCheck()
+        
+    }
+    
+    
+    
     private(set) var shoppingItem: [ShoppingItem] = []
     
     

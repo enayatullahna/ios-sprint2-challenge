@@ -16,6 +16,11 @@ class OrderViewController: UIViewController {
     
     var shoppingItemController: ShoppingItemController?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.lightGray
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateViews()

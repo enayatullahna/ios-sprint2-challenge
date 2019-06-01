@@ -45,24 +45,27 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Apple" translatesAutoresizingMaskIntoConstraints="NO" id="XFy-Xi-H95">
-                                                            <rect key="frame" x="0.0" y="25.5" width="180" height="144.5"/>
+                                                            <rect key="frame" x="0.0" y="25.5" width="180" height="174.5"/>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss8-Lj-avT">
-                                                            <rect key="frame" x="0.0" y="170" width="180" height="30"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <connections>
-                                                                <action selector="addButtonTapped:" destination="iIl-gk-I5o" eventType="touchUpInside" id="2Pn-Mp-ZCU"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss8-Lj-avT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                                    <connections>
+                                                        <action selector="addButtonTapped:" destination="iIl-gk-I5o" eventType="touchUpInside" id="2Pn-Mp-ZCU"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Vsz-OM-voS" firstAttribute="top" secondItem="Cjs-1O-XkB" secondAttribute="top" id="B8f-fi-bCG"/>
                                                 <constraint firstItem="Vsz-OM-voS" firstAttribute="leading" secondItem="Cjs-1O-XkB" secondAttribute="leading" id="HDS-3z-qCc"/>
+                                                <constraint firstAttribute="bottom" secondItem="ss8-Lj-avT" secondAttribute="bottom" id="Jmd-Um-G1H"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vsz-OM-voS" secondAttribute="trailing" id="fZN-8I-ncu"/>
+                                                <constraint firstAttribute="trailing" secondItem="ss8-Lj-avT" secondAttribute="trailing" id="lYF-6y-UvE"/>
                                                 <constraint firstAttribute="bottom" secondItem="Vsz-OM-voS" secondAttribute="bottom" id="rWi-IJ-OpJ"/>
+                                                <constraint firstItem="ss8-Lj-avT" firstAttribute="leading" secondItem="Cjs-1O-XkB" secondAttribute="leading" id="soB-BR-hd2"/>
+                                                <constraint firstItem="ss8-Lj-avT" firstAttribute="top" secondItem="Cjs-1O-XkB" secondAttribute="top" id="vfV-Lw-SFu"/>
                                             </constraints>
                                         </view>
                                     </subviews>
