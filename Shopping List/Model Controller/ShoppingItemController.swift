@@ -25,6 +25,17 @@ class ShoppingItemController {
         }
     }
     
+    // update item
+    func updateItemList(items: ShoppingItem) {
+        
+        // guard let index = shoppingItem.index(of: shoppingItem) else {return}
+        
+        guard let index = shoppingItem.index(of: items) else { return }
+            shoppingItem[index].hasBeenAdded = !shoppingItem[index].hasBeenAdded
+        saveToPersistenceStore()
+      
+    }
+    
     // persistentFileURL - create plist file
     private var persistentFileURL: URL? {
         let fileManager = FileManager.default
@@ -44,15 +55,40 @@ class ShoppingItemController {
         return totalAdded
     }
     
-    // save data
+    // save data plist file
     func saveToPersistenceStore() {
+        
+        guard let url = self.persistentFileURL else {return}
+        
+        do{
+            
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(shoppingItem)
+            try data.write(to: url)
+            
+        }catch {
+            NSLog("Error saving your iteams \(error)")
+        }
 
     }
     
     
-    // load data
+    // load data from plist
     func loadFromPersistenceStore() {
+        let fileManager = FileManager.default
         
+        guard let url = persistentFileURL,
+            fileManager.fileExists(atPath: url.path) else {return}
+        
+        do {
+            
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            self.shoppingItem = try decoder.decode([ShoppingItem].self, from: data)
+            
+        }catch {
+            NSLog("Error loading your iteams \(error)")
+        }
     }
     
     
