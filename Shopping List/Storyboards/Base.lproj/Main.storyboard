@@ -45,8 +45,15 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Apple" translatesAutoresizingMaskIntoConstraints="NO" id="XFy-Xi-H95">
-                                                            <rect key="frame" x="0.0" y="25.5" width="180" height="174.5"/>
+                                                            <rect key="frame" x="0.0" y="25.5" width="180" height="144.5"/>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss8-Lj-avT">
+                                                            <rect key="frame" x="0.0" y="170" width="180" height="30"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="addButtonTapped:" destination="iIl-gk-I5o" eventType="touchUpInside" id="2Pn-Mp-ZCU"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -100,19 +107,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JuZ-2X-zpD">
                                 <rect key="frame" x="16" y="170" width="382" height="180.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cih-xX-o25">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cih-xX-o25">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-fq-wlq">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-fq-wlq">
                                         <rect key="frame" x="0.0" y="44.5" width="382" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="USG-UL-qa3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="USG-UL-qa3">
                                         <rect key="frame" x="0.0" y="97.5" width="382" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -121,6 +128,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-c7-RYS">
                                         <rect key="frame" x="0.0" y="150.5" width="382" height="30"/>
                                         <state key="normal" title="Send Order"/>
+                                        <connections>
+                                            <action selector="submitButtonTapped:" destination="p99-WE-ROs" eventType="touchUpInside" id="7GM-sP-FvA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -133,6 +143,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1VW-oD-TIt"/>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="USG-UL-qa3" id="hdR-MP-pxy"/>
+                        <outlet property="nameTextField" destination="hmR-fq-wlq" id="sYg-Rt-BQV"/>
+                        <outlet property="titleLabel" destination="cih-xX-o25" id="59v-g5-TFY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBF-JN-Zk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

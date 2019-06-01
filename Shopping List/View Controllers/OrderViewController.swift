@@ -10,21 +10,53 @@ import UIKit
 
 class OrderViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    
+    var shoppingItemController: ShoppingItemController?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
+    func updateViews() {
+        guard let countItems = shoppingItemController?.countItemsAdded() else { return }
 
-        // Do any additional setup after loading the view.
+        var text = ""
+        switch countItems {
+        case 0:
+            text = "You currently have \(countItems) items in your shopping list"
+        case 1:
+            text = "You currently have \(countItems) item in your shopping list"
+        case 2...10:
+            text = "You currently have \(countItems) items in your shopping list"
+        default:
+            text = "Please Doubel check your shopping cart, something is missing"
+        }
+        titleLabel.text = text
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        
+        guard let name = nameTextField.text,
+            let address = addressTextField.text else {return}
+        
+        alert(user: name, userAdress: address)
+        
     }
-    */
-
+    
+    
+    func alert(user: String, userAdress: String){
+        let alert = UIAlertController(title: "Hey Your!", message: "\(user) your order will be delivered in 15min to \(userAdress) address", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Got it", style: .default, handler: { (_)
+            in
+            self.navigationController?.popToRootViewController(animated: true)}))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }

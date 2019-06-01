@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ShoppingItem: Equatable, Codable {
+struct ShoppingItem: Codable, Equatable {
     var name: String
     var hasBeenAdded: Bool
     

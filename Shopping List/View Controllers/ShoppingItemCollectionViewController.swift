@@ -40,7 +40,9 @@ class ShoppingItemCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShoppingItemCollectionViewCell
     
-        // Configure the cell
+        let item = self.shoppingItemController.shoppingItem[indexPath.row]
+        cell.shoppingItem = item
+        cell.delegate = self
     
         return cell
     }
@@ -56,6 +58,45 @@ class ShoppingItemCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toAddressVC" {
+            guard let destinationVC = segue.destination as? OrderViewController else { return }
+            
+            destinationVC.shoppingItemController = shoppingItemController
+        }
+        
+        
     }
 
+    
+
+}
+
+
+//extension ShoppingItemCollectionViewController: ShoppingItemViewCellDelegate {
+//    func addWasTapped(on cell: UICollectionViewCell) {
+//        guard let index = collectionView.indexPath(for: cell) else { return }
+//        let item = shoppingItemController.shoppingItem[index.item]
+//        shoppingItemController.updateItemList(item: item)
+//
+//        collectionView?.reloadItems(at: [index])
+//
+//    }
+//
+//
+//
+//}
+
+
+extension ShoppingItemCollectionViewController: ShoppingItemViewCellDelegate {
+    func addWasTapped(on cell: UICollectionViewCell) {
+        
+        guard let index = collectionView?.indexPath(for: cell) else { return }
+        
+        let item = shoppingItemController.shoppingItem[index.item]
+        
+        shoppingItemController.updateItemList(items: item)
+        
+        collectionView?.reloadItems(at: [index])
+    }
 }

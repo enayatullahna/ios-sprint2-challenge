@@ -9,13 +9,12 @@
 import UIKit
 
 protocol ShoppingItemViewCellDelegate: AnyObject {
-    func addWasTapped(on Cell: UICollectionViewCell) // protocol when add to cart was tapped
+    func addWasTapped(on cell: UICollectionViewCell) // protocol when add to cart was tapped
 }
 
 class ShoppingItemCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var addedLabel: UILabel!
+    weak var delegate: ShoppingItemViewCellDelegate?
     
     var shoppingItem: ShoppingItem? {
         didSet {
@@ -23,15 +22,29 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addedLabel: UILabel!
     
     
-    //NEED ACTION BUTTON to Switch between two label text
     
-    
-    
+
     func updateViews() {
         
+        guard let item = shoppingItem else { return }
+        
+        
+        imageView.image = UIImage(named: item.name)
+        
+        let text = item.hasBeenAdded ? "Added" : "Not Added"
+        addedLabel.text = text
     }
     
+    
+    //NEED ACTION BUTTON to Switch between two label text, added button temp
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+        delegate?.addWasTapped(on: self)
+        
+    }
     
 }
