@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol ShoppingItemViewCellDelegate: AnyObject {
+    func addWasTapped(on Cell: UICollectionViewCell) // protocol when add to cart was tapped
+}
 
 class ShoppingItemCollectionViewCell: UICollectionViewCell {
     
@@ -22,7 +25,7 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
     
     
     
-    
+    //NEED ACTION BUTTON to Switch between two label text
     
     
     
