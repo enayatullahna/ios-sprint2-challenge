@@ -8,6 +8,27 @@
 
 import UIKit
 
+
 class ShoppingItemCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addedLabel: UILabel!
+    
+    var shoppingItem: ShoppingItem? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    func updateViews() {
+        
+    }
+    
     
 }

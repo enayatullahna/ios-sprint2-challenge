@@ -66,6 +66,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Cjs-1O-XkB" secondAttribute="trailing" id="ck1-AS-NEC"/>
                                     <constraint firstItem="Cjs-1O-XkB" firstAttribute="leading" secondItem="iIl-gk-I5o" secondAttribute="leading" id="oDL-Bh-DiF"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="addedLabel" destination="qNG-WY-Wg8" id="n47-da-mrB"/>
+                                    <outlet property="imageView" destination="XFy-Xi-H95" id="O8d-yD-uWi"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
